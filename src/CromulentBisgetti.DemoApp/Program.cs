@@ -1,24 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
+﻿using CromulentBisgetti.ContainerPacking;
+using CromulentBisgetti.ContainerPacking.Entities;
+using Microsoft.AspNetCore.Http.Json;
 
-namespace CromulentBisgetti.DemoApp
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.Configure<JsonOptions>(opts =>
 {
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            CreateWebHostBuilder(args).Build().Run();
-        }
+    // Use PascalCase
+    opts.SerializerOptions.PropertyNamingPolicy = null;
+});
 
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
-    }
-}
+var app = builder.Build();
+
+app.UseHttpsRedirection();
+app.UseDefaultFiles();
+app.UseStaticFiles();
+
+app.MapPost("/api/containerpacking", async (HttpContext context) =>
+{
+    var req = await context.Request.ReadFromJsonAsync<ContainerPackingRequest>();
+    return PackingService.Pack(req.Containers, req.ItemsToPack, req.AlgorithmTypeIDs);
+});
+
+app.Run();
+
+public record ContainerPackingRequest(List<Container> Containers, List<Item> ItemsToPack, List<int> AlgorithmTypeIDs);
