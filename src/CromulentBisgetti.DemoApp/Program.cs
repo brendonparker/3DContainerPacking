@@ -19,7 +19,8 @@ app.UseStaticFiles();
 app.MapPost("/api/containerpacking", async (HttpContext context) =>
 {
     var req = await context.Request.ReadFromJsonAsync<ContainerPackingRequest>();
-    return PackingService.Pack(req.Containers, req.ItemsToPack, req.AlgorithmTypeIDs);
+    if (req == null) return Results.BadRequest();
+    return Results.Ok(PackingService.Pack(req.Containers, req.ItemsToPack, req.AlgorithmTypeIDs));
 });
 
 app.Run();
