@@ -11,12 +11,6 @@ namespace CromulentBisgetti.ContainerPacking.Entities
 	/// </summary>
 	public class Container
 	{
-		#region Private Variables
-
-		private decimal volume;
-
-		#endregion Private Variables
-
 		#region Constructors
 
 		/// <summary>
@@ -76,17 +70,7 @@ namespace CromulentBisgetti.ContainerPacking.Entities
 		/// <value>
 		/// The volume of the container.
 		/// </value>
-		public decimal Volume
-		{
-			get
-			{
-				return this.volume;
-			}
-			set
-			{
-				this.volume = value;
-			}
-		}
+		public decimal Volume { get; set; }
 
 		#endregion Public Properties
 	}
