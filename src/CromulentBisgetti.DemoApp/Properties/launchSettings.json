@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "CromulentBisgetti.DemoApp2": {
+    "CromulentBisgetti.DemoApp": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {
