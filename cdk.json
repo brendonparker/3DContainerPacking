@@ -1,0 +1,7 @@
+{
+    "app": "dotnet run --project src/AwsDeployment/AwsDeployment.csproj",
+    "requireApproval": "never",
+    "context": {
+    }
+  }
+  

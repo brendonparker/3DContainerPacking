@@ -253,3 +253,7 @@ paket-files/
 
 # BenchmarkDotNet
 BenchmarkDotNet.Artifacts/
+
+# AWS/CDK
+cdk.out/
+build/
