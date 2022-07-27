@@ -3,6 +3,7 @@
     "CromulentBisgetti.DemoApp": {
       "commandName": "Project",
       "launchBrowser": true,
+      "launchUrl": "multibox.html",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
