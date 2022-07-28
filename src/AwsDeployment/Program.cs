@@ -32,7 +32,7 @@ public class BinPackingStack : Stack
 
         var fnUrl = fn.AddFunctionUrl(new Lambda.FunctionUrlProps
         {
-            AuthType = Lambda.FunctionUrlAuthType.NONE,
+            AuthType = Lambda.FunctionUrlAuthType.NONE
         });
 
         new CfnOutput(this, "LambdaURL", new CfnOutputProps { ExportName = "LambdaURL", Value = fnUrl.Url });

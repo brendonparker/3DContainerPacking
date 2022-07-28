@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Http.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddAWSLambdaHosting(LambdaEventSource.HttpApi);
+builder.Services.AddAWSLambdaHostingCustomized();
 
 builder.Services.Configure<JsonOptions>(opts =>
 {

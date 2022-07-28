@@ -74,7 +74,7 @@ var ViewModel = function () {
 		z: 0
 	};
 
-	self.AlgorithmsToUse = ko.observableArray([]);
+	self.AlgorithmsToUse = ko.observableArray([{ AlgorithmID: "1", AlgorithmName: "EB-AFIT" }]);
 	self.ItemsToPack = ko.observableArray([]);
 	self.Containers = ko.observableArray([]);
 	self.PackedResults = ko.observableArray([]);
